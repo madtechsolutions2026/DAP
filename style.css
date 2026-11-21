@@ -434,69 +434,379 @@ img, video {
   50% { transform: translateY(4px); }
 }
 
-/* Hero Video Reel Switcher & Sound Bar */
-.hero-controls-bar {
+/* =============================================================================
+   DJ PERFORMANCE CONSOLE DECK (HERO REEL CONTROLS & MASTER AUDIO)
+   ============================================================================= */
+.dj-deck-console {
+  position: relative;
+  background: linear-gradient(180deg, rgba(24, 26, 33, 0.94) 0%, rgba(12, 13, 17, 0.98) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 880px;
+  transition: border-color 0.3s ease;
+}
+
+.dj-deck-console:hover {
+  border-color: rgba(217, 119, 36, 0.3);
+}
+
+/* DJ Hardware Console Header Strip */
+.dj-deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  user-select: none;
+}
+
+.dj-deck-header-left,
+.dj-deck-header-right {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.reel-switcher-pills {
-  display: flex;
   gap: 8px;
-  background: rgba(10, 10, 15, 0.8);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4px;
-  border-radius: var(--radius-pill);
 }
 
-.reel-pill {
-  font-family: var(--font-mono);
+.dj-hardware-bolt {
+  font-family: monospace;
   font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.dj-console-model {
   color: var(--text-dim);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  transition: all 0.2s ease;
+  font-weight: 700;
+  letter-spacing: 0.14em;
 }
 
-.reel-pill:hover {
-  color: #fff;
+.dj-sync-badge {
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 1px 5px;
+  border-radius: 3px;
 }
 
-.reel-pill.active {
-  background: var(--brand-orange);
-  color: #fff;
-}
-
-.hero-sound-toggle {
+.dj-bpm-meter {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(10, 10, 15, 0.8);
-  backdrop-filter: blur(8px);
+  color: var(--brand-orange);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.dj-bpm-beat {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: djBpmFlash 0.468s infinite ease-in-out;
+}
+
+@keyframes djBpmFlash {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+.dj-channel-id {
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+/* DJ Performance Surface */
+.dj-deck-surface {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Tactile Pioneer CDJ Hot Cue Performance Pads */
+.dj-cue-bank {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dj-cue-pad {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  background: linear-gradient(180deg, #1f222c 0%, #12141a 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--text-white);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 3px 6px rgba(0, 0, 0, 0.55);
+  padding: 7px 12px 6px;
+  border-radius: 6px;
+  min-width: 110px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.dj-cue-pad:hover {
+  background: linear-gradient(180deg, #282d3a 0%, #161822 100%);
+  border-color: rgba(217, 119, 36, 0.45);
+  transform: translateY(-1px);
+}
+
+.dj-cue-pad:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+.dj-cue-pad.active {
+  background: linear-gradient(180deg, #2e1c0e 0%, #1a0f07 100%);
+  border: 1px solid var(--brand-orange);
+  box-shadow: 0 0 16px rgba(217, 119, 36, 0.35), inset 0 0 8px rgba(217, 119, 36, 0.22);
+}
+
+.dj-cue-led {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
   transition: all 0.2s ease;
 }
 
-.hero-sound-toggle:hover {
-  border-color: var(--brand-orange);
+.dj-cue-pad.active .dj-cue-led {
+  background: #ff7700;
+  box-shadow: 0 0 6px #ff7700, 0 0 10px #ff7700;
 }
 
-.hero-sound-toggle.active {
-  background: rgba(217, 119, 36, 0.2);
-  border-color: var(--brand-orange);
+.dj-cue-meta {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.dj-cue-pad.active .dj-cue-meta {
   color: var(--brand-orange);
+}
+
+.dj-cue-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* DJ Graphic EQ / Audio Level VU Meter */
+.dj-vu-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(8, 9, 13, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 10px;
+  border-radius: 6px;
+  height: 42px;
+  user-select: none;
+}
+
+.dj-vu-meter {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+
+.dj-vu-bar {
+  width: 3px;
+  height: 4px;
+  border-radius: 1px;
+  transition: height 0.15s ease;
+}
+
+.dj-vu-bar.bar-1,
+.dj-vu-bar.bar-2,
+.dj-vu-bar.bar-3 {
+  background: #22c55e;
+}
+
+.dj-vu-bar.bar-4,
+.dj-vu-bar.bar-5 {
+  background: #eab308;
+}
+
+.dj-vu-bar.bar-6 {
+  background: #ef4444;
+}
+
+/* Dynamic Live Bouncing VU Meter when Audio is ON */
+.dj-vu-block.is-live .dj-vu-bar.bar-1 {
+  animation: vuBounce1 0.42s infinite ease-in-out alternate;
+}
+.dj-vu-block.is-live .dj-vu-bar.bar-2 {
+  animation: vuBounce2 0.35s infinite ease-in-out alternate;
+}
+.dj-vu-block.is-live .dj-vu-bar.bar-3 {
+  animation: vuBounce3 0.5s infinite ease-in-out alternate;
+}
+.dj-vu-block.is-live .dj-vu-bar.bar-4 {
+  animation: vuBounce4 0.38s infinite ease-in-out alternate;
+}
+.dj-vu-block.is-live .dj-vu-bar.bar-5 {
+  animation: vuBounce5 0.46s infinite ease-in-out alternate;
+}
+.dj-vu-block.is-live .dj-vu-bar.bar-6 {
+  animation: vuBounce6 0.6s infinite ease-in-out alternate;
+}
+
+@keyframes vuBounce1 {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+@keyframes vuBounce2 {
+  0% { height: 6px; }
+  100% { height: 14px; }
+}
+@keyframes vuBounce3 {
+  0% { height: 3px; }
+  100% { height: 18px; }
+}
+@keyframes vuBounce4 {
+  0% { height: 5px; }
+  100% { height: 13px; }
+}
+@keyframes vuBounce5 {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+@keyframes vuBounce6 {
+  0% { height: 2px; }
+  100% { height: 11px; }
+}
+
+.dj-vu-scale {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* DJ Master Cue Button (Pioneer DJ Headphone / On-Air Cue Style) */
+.dj-master-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, #1f222c 0%, #12141a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 3px 6px rgba(0, 0, 0, 0.55);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 42px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.dj-master-cue:hover {
+  background: linear-gradient(180deg, #282d3a 0%, #161822 100%);
+  border-color: rgba(217, 119, 36, 0.45);
+  transform: translateY(-1px);
+}
+
+.dj-master-cue:active {
+  transform: translateY(1px);
+}
+
+.dj-master-cue.active {
+  background: linear-gradient(180deg, #30170a 0%, #1c0c05 100%);
+  border-color: var(--brand-orange);
+  box-shadow: 0 0 16px rgba(217, 119, 36, 0.4), inset 0 0 8px rgba(217, 119, 36, 0.25);
+}
+
+.dj-cue-headphone-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.dj-master-cue.active .dj-cue-headphone-icon {
+  color: var(--brand-orange);
+}
+
+.dj-master-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.dj-cue-state-badge {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+}
+
+.dj-master-cue.active .dj-cue-state-badge {
+  color: #ef4444;
+}
+
+.dj-cue-state-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.dj-master-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: all 0.2s ease;
+}
+
+.dj-master-cue.active .dj-master-led {
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444, 0 0 10px #ef4444;
+  animation: djMasterLedPulse 1s infinite alternate;
+}
+
+@keyframes djMasterLedPulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
 }
 
 /* =============================================================================
@@ -1969,6 +2279,50 @@ img, video {
 
   .hero-content-wrapper {
     padding: 40px 20px 60px;
+  }
+
+  .hero-bottom-dock {
+    bottom: 16px;
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dj-deck-console {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .dj-cue-bank {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 6px;
+  }
+
+  .dj-cue-pad {
+    min-width: 0;
+    width: 100%;
+    padding: 6px 8px;
+  }
+
+  .dj-deck-surface {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .dj-vu-block {
+    width: 100%;
+    height: 34px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 14px;
+  }
+
+  .dj-master-cue {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-actions-row {

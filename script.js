@@ -238,16 +238,29 @@
   }
 
   /* =========================================================================
-     4. HERO VIDEO SWITCHER & AUDIO TOGGLE
+     4. HERO VIDEO SWITCHER & AUDIO TOGGLE (DJ PERFORMANCE CONSOLE)
      ========================================================================= */
   window.switchHeroVideo = function (idx, btn) {
     const video = document.getElementById('heroVideo');
     const source = document.getElementById('heroVideoSource');
     if (!video || !source || !heroReels[idx]) return;
 
-    // Update active button
-    document.querySelectorAll('.reel-pill').forEach((b) => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
+    // Update active cue pad
+    document.querySelectorAll('.dj-cue-pad, .reel-pill').forEach((b) => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    if (btn) {
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
+
+    // Update channel indicator telemetry
+    const chEl = document.getElementById('djChannelIndicator');
+    if (chEl) {
+      const chNum = String(idx + 1).padStart(2, '0');
+      chEl.textContent = `CH ${chNum} // 48kHz`;
+    }
 
     video.style.opacity = '0.3';
 
@@ -263,22 +276,25 @@
   window.toggleHeroAudio = function () {
     const video = document.getElementById('heroVideo');
     const btn = document.getElementById('heroSoundBtn');
-    const icon = document.getElementById('heroSoundIcon');
+    const badge = document.getElementById('heroSoundBadge');
     const txt = document.getElementById('heroSoundTxt');
+    const vu = document.getElementById('djVuBlock');
     if (!video || !btn) return;
 
     if (video.muted) {
       video.muted = false;
       isHeroAudioActive = true;
       btn.classList.add('active');
-      if (icon) icon.textContent = '🔊';
-      if (txt) txt.textContent = 'SOUND ON';
+      if (badge) badge.textContent = 'ON AIR';
+      if (txt) txt.textContent = 'LIVE AUDIO';
+      if (vu) vu.classList.add('is-live');
     } else {
       video.muted = true;
       isHeroAudioActive = false;
       btn.classList.remove('active');
-      if (icon) icon.textContent = '🔇';
-      if (txt) txt.textContent = 'SOUND OFF';
+      if (badge) badge.textContent = 'MUTED';
+      if (txt) txt.textContent = 'MASTER CUE';
+      if (vu) vu.classList.remove('is-live');
     }
   };
 
