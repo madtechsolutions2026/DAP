@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEAM DAP | DJ Arun Productions — Luxury Event Architecture & Engineering</title>
+  
+  <meta name="description" content="Turnkey festival engineering, heavy aluminium trussing, tour-grade line arrays & bespoke headline event production across South India.">
+
+  <!-- Typography: Barlow Condensed (Headlines) | Barlow (Body) | JetBrains Mono (Specs) | Unbounded (DJ Arun) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=35.0">
+
+  <!-- GSAP & Lenis Smooth Motion Engines -->
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+  <script src="node_modules/lenis/dist/lenis.min.js"></script>
+
+  <!-- Fallback mirrors -->
+  <script>
+    if (typeof gsap === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"><\/script>');
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"><\/script>');
+    }
+    if (typeof Lenis === 'undefined') {
+      document.write('<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"><\/script>');
+    }
+  </script>
+</head>
+<body class="site-body">
+
+  <!-- ========================================================================= -->
+  <!-- HEADER -->
+  <!-- ========================================================================= -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-inner">
+      
+      <!-- Brand Logo Badge -->
+      <a href="#" class="brand-badge" id="brandAnchor">
+        <img src="images/logo.jpg" alt="Team DAP" class="brand-logo" id="headerLogo">
+        <div class="brand-text">
+          <span class="brand-title">TEAM DAP</span>
+          <span class="brand-sub">DJ ARUN PRODUCTIONS</span>
+        </div>
+      </a>
+
+      <!-- Minimal Navigation -->
+      <nav class="header-nav" id="navMenu" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#works">WORKS</a></li>
+          <li><a href="#reels">REELS</a></li>
+          <li><a href="#arun">DJ ARUN</a></li>
+          <li><a href="#fleet">FLEET</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-right">
+        <a href="#contact" class="btn-enquire">
+          <span>COMMISSION RIG</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 1. HERO BANNER: FULL-BLEED LIVE CONCERT VIDEO -->
+  <!-- ========================================================================= -->
+  <section class="hero-section" id="hero">
+    
+    <!-- Fullscreen Video Element -->
+    <div class="hero-video-container">
+      <video 
+        id="heroVideo"
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="auto"
+        poster="images/thundersparkevents_1793894378_4023798828732710975_69442588126.webp"
+        class="hero-video-media"
+      >
+        <source id="heroVideoSource" src="images/djarunproductions_1792674572_4013565974667328085_1443149917.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-scrim"></div>
+    </div>
+
+    <!-- Hero Bottom Controls (Docked cleanly at the bottom, zero text obstruction) -->
+    <div class="hero-bottom-dock">
+      <div class="hero-controls-bar">
+        <div class="reel-switcher-pills">
+          <button type="button" class="reel-pill active" onclick="switchHeroVideo(0, this)">01 GALA ENTRY</button>
+          <button type="button" class="reel-pill" onclick="switchHeroVideo(1, this)">02 ARENA TOUR</button>
+          <button type="button" class="reel-pill" onclick="switchHeroVideo(2, this)">03 CONFETTI DROP</button>
+          <button type="button" class="reel-pill" onclick="switchHeroVideo(3, this)">04 DJ ARUN LIVE</button>
+        </div>
+        
+        <button type="button" class="hero-sound-toggle" id="heroSoundBtn" onclick="toggleHeroAudio()" title="Toggle Sound">
+          <span id="heroSoundIcon">🔇</span>
+          <span id="heroSoundTxt">SOUND OFF</span>
+        </button>
+      </div>
+
+      <a href="#about" class="hero-scroll-cue" aria-label="Scroll to About">
+        <span>EXPLORE</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 2. ABOUT: STRUCTURAL ENGINEERING & ARENA ARCHITECTURE -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-about" id="about">
+    <div class="section-inner">
+      
+      <div class="about-grid">
+        
+        <!-- Left: Real Arena Stage Build Photo -->
+        <div class="about-visual-col reveal-on-scroll">
+          <div class="about-image-card">
+            <img src="images/about-stage-rigging.jpg" alt="Team DAP Arena Concert Stage Rigging Build" loading="lazy">
+            <div class="image-gradient-overlay"></div>
+          </div>
+        </div>
+
+        <!-- Right: Simple, Clean & Powerful Content -->
+        <div class="about-content-col reveal-on-scroll">
+          <span class="section-kicker">ABOUT TEAM DAP</span>
+          <h2 class="section-title">THE ARCHITECTS OF MAIN STAGE ENERGY.</h2>
+          
+          <p class="about-simple-lead">
+            Founded by <strong>DJ Arun</strong>, Team DAP engineers the physical foundation for India's grandest concert arena stages, destination royal galas, and college festivals.
+          </p>
+          
+          <p class="about-simple-sub">
+            From 60ft arched concert roofs in Bengaluru to stadium festival rigs across Hyderabad and Chennai, we deliver turnkey structural trussing, calibrated tour sound, and intelligent DMX lighting with zero-failure safety standards.
+          </p>
+
+          <!-- 3 Clean Minimal Feature Figures -->
+          <div class="about-stats-clean">
+            <div class="about-stat-clean-item">
+              <strong class="stat-number">500+</strong>
+              <span class="stat-clean-lbl">ARENA STAGES ENGINEERED</span>
+            </div>
+            <div class="about-stat-clean-item">
+              <strong class="stat-number">100%</strong>
+              <span class="stat-clean-lbl">ZERO-FAILURE RECORD</span>
+            </div>
+            <div class="about-stat-clean-item">
+              <strong class="stat-number">12+</strong>
+              <span class="stat-clean-lbl">YEARS TOUR MASTERY</span>
+            </div>
+          </div>
+
+          <!-- Direct CTA -->
+          <div class="about-action-wrap">
+            <a href="#services" class="about-link-btn">
+              <span>EXPLORE SERVICES & HARDWARE</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 3. TURNKEY SERVICES & HARDWARE SHOWCASE -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-services" id="services">
+    <div class="section-inner">
+      
+      <div class="section-header-block reveal-on-scroll">
+        <div>
+          <span class="section-kicker">OUR CAPABILITIES</span>
+          <h2 class="section-title">ENGINEERED FOR THE ARENA.</h2>
+        </div>
+        <p class="section-lead-text">
+          Zero third-party rentals. Team DAP owns and deploys entire concert infrastructures with zero single-point-of-failure redundancy.
+        </p>
+      </div>
+
+      <div class="services-modern-grid reveal-on-scroll">
+        
+        <!-- Service 1: Structural Rigging -->
+        <div class="service-card">
+          <div class="service-card-media">
+            <img src="images/tarana_theband_1778171118_3891898386656444975_58347999296.jpg" alt="Aluminium Box Trussing" loading="lazy">
+            <div class="service-card-scrim"></div>
+            <span class="service-num-badge">STAGE RIGGING</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-heading">Structural Aluminium Box Trussing & Roofs</h3>
+            <p class="service-text">Heavy aluminium box truss systems, 60ft arched festival roofs, ground-support towers, and cantilever wings engineered for extreme safety.</p>
+          </div>
+        </div>
+
+        <!-- Service 2: Tour Sound -->
+        <div class="service-card">
+          <div class="service-card-media">
+            <img src="images/tarana_theband_1778171118_3891898367882703934_58347999296.jpg" alt="Tour Sound Line Arrays" loading="lazy">
+            <div class="service-card-scrim"></div>
+            <span class="service-num-badge">CONCERT SOUND</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-heading">Tour-Grade Line Arrays & Sound Engineering</h3>
+            <p class="service-text">Precision-tuned tour line array loudspeaker systems, cardioid subwoofer steer arrays, and digital DSP networks delivering 140dB+ of clean headroom.</p>
+          </div>
+        </div>
+
+        <!-- Service 3: Intelligent Lighting -->
+        <div class="service-card">
+          <div class="service-card-media">
+            <img src="images/thundersparkevents_1793894378_4023798818448309145_69442588126.webp" alt="Intelligent DMX Lighting" loading="lazy">
+            <div class="service-card-scrim"></div>
+            <span class="service-num-badge">INTELLIGENT LIGHTING</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-heading">Intelligent DMX & Kinetic Laser Lighting</h3>
+            <p class="service-text">Time-coded GrandMA show programming, high-output beam moving heads, LED wash battens, and motorized kinetic winches for volumetric atmospheres.</p>
+          </div>
+        </div>
+
+        <!-- Service 4: Special FX -->
+        <div class="service-card">
+          <div class="service-card-media">
+            <img src="images/djarunproductions_1776693317_3879502992827908298_1443149917.jpg" alt="Special Effects & Pyro" loading="lazy">
+            <div class="service-card-scrim"></div>
+            <span class="service-num-badge">SPECIAL EFFECTS</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-heading">Special Effects & Stage Atmosphere</h3>
+            <p class="service-text">Stadium-grade cryo CO2 blast jets, multi-barrel confetti cannons, cold-spark firework fountains, and fine haze machines that amplify laser clarity.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. WORKS: CURATED PRODUCTION ARCHIVE WITH LIGHTBOX -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-works section-dark-overlay" id="works">
+    <div class="section-inner">
+      
+      <div class="section-header-block reveal-on-scroll">
+        <div class="header-left">
+          <span class="section-kicker">PRODUCTION ARCHIVE</span>
+          <h2 class="section-title">MONUMENTAL ARENA PRODUCTIONS.</h2>
+        </div>
+        <p class="section-lead-text">
+          Real live concert engineering, headline band tours, geometric ballroom rigging, and stadium special effects across India.
+        </p>
+      </div>
+
+      <!-- Works Clean Curated 2x2 Showcase -->
+      <div class="works-grid works-clean-grid" id="worksGrid">
+        
+        <!-- Project 1: Stadium Concert Roof -->
+        <div class="work-tile reveal-on-scroll" onclick="openLightbox(0)">
+          <img src="images/tarana_theband_1778171118_3891898379870073979_58347999296.jpg" alt="Tarana The Band Live Arena Concert Stage" loading="lazy">
+          <div class="tile-overlay"></div>
+          <div class="tile-info">
+            <span class="tile-tag">STADIUM TOUR</span>
+            <h3 class="tile-title">Monumental 60ft Stage Roof & Tour Sound — Tarana Arena Tour</h3>
+            <span class="tile-cta">INSPECT RIG ↗</span>
+          </div>
+        </div>
+
+        <!-- Project 2: Aaroh'26 Grand Fest -->
+        <div class="work-tile reveal-on-scroll" onclick="openLightbox(3)">
+          <img src="images/djarunproductions_1782137934_3925175345106743732_1443149917.jpg" alt="Aaroh 26 Grand Fest" loading="lazy">
+          <div class="tile-overlay"></div>
+          <div class="tile-info">
+            <span class="tile-tag">COLLEGE FESTIVAL</span>
+            <h3 class="tile-title">AAROH'26 Grand Stage Rig & P3 Stadium LED Wall</h3>
+            <span class="tile-cta">INSPECT RIG ↗</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Kinetic Winch Spheres -->
+        <div class="work-tile reveal-on-scroll" onclick="openLightbox(1)">
+          <img src="images/thundersparkevents_1793894378_4023798828732710975_69442588126.webp" alt="Kinetic Winch Spheres" loading="lazy">
+          <div class="tile-overlay"></div>
+          <div class="tile-info">
+            <span class="tile-tag">KINETIC LIGHTING</span>
+            <h3 class="tile-title">Geometric Ceiling Truss & Motorized Kinetic Winch Spheres</h3>
+            <span class="tile-cta">INSPECT RIG ↗</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Volumetric Lasers -->
+        <div class="work-tile reveal-on-scroll" onclick="openLightbox(5)">
+          <img src="images/thundersparkevents_1793894378_4023798823179282793_69442588126.webp" alt="Multi-Beam Volumetric Laser Show" loading="lazy">
+          <div class="tile-overlay"></div>
+          <div class="tile-info">
+            <span class="tile-tag">TIME-CODED DMX</span>
+            <h3 class="tile-title">Multi-Beam Volumetric Laser & Moving Head Matrix</h3>
+            <span class="tile-cta">INSPECT RIG ↗</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. REELS: LIVE CONCERT VIDEO VAULT (REAL VIDEOS WITH AUDIO) -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-reels" id="reels">
+    <div class="section-inner">
+      
+      <div class="section-header-block reveal-on-scroll">
+        <div class="header-left">
+          <span class="section-kicker">LIVE CONCERT REELS</span>
+          <h2 class="section-title">THE CONCERT VAULT: LIVE IN MOTION.</h2>
+        </div>
+        <p class="section-lead-text">
+          Direct video captures from India's grandest concert arena stages, headline band tours, and stadium pyrotechnics engineered by Team DAP. Hover to preview or click for audio.
+        </p>
+      </div>
+
+      <div class="reels-cinema-grid reveal-on-scroll">
+        
+        <!-- Reel 1: Tarana The Band -->
+        <div class="reel-cinema-card">
+          <div class="reel-video-wrap">
+            <video loop muted playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()" poster="images/tarana_theband_1778171118_3891898379870073979_58347999296.jpg">
+              <source src="images/tarana_theband_1780499041_3911415151148495653_58347999296.mp4" type="video/mp4">
+            </video>
+            <div class="reel-scrim"></div>
+            <div class="reel-telemetry-badge">LIVE ARENA TOUR</div>
+            <button type="button" class="reel-play-btn" onclick="toggleReelAudio(this)" title="Toggle Sound">
+              <span class="play-icon">▶</span>
+              <span class="play-txt">PLAY WITH SOUND</span>
+            </button>
+          </div>
+          <div class="reel-cinema-info">
+            <div class="reel-spec-bar">
+              <span class="spec-code">TARANA THE BAND</span>
+              <span class="spec-data">15,000+ ATTENDEES</span>
+            </div>
+            <h3 class="reel-heading">Massive Arena Concert Stage & Sound Reinforcement</h3>
+            <p class="reel-desc">Full 60ft arched structural aluminium trussing, dual delay towers, and calibrated tour line arrays delivering crystal clear vocal headroom.</p>
+          </div>
+        </div>
+
+        <!-- Reel 2: DJ Arun Live Arena Set & Confetti Drop -->
+        <div class="reel-cinema-card">
+          <div class="reel-video-wrap">
+            <video loop muted playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()" poster="images/djarunproductions_1776693317_3879502990034485871_1443149917.jpg">
+              <source src="images/djarunproductions_1791419327_4003034579574222838_1443149917.mp4" type="video/mp4">
+            </video>
+            <div class="reel-scrim"></div>
+            <div class="reel-telemetry-badge">STADIUM SPECIAL FX</div>
+            <button type="button" class="reel-play-btn" onclick="toggleReelAudio(this)" title="Toggle Sound">
+              <span class="play-icon">▶</span>
+              <span class="play-txt">PLAY WITH SOUND</span>
+            </button>
+          </div>
+          <div class="reel-cinema-info">
+            <div class="reel-spec-bar">
+              <span class="spec-code">DJ ARUN LIVE</span>
+              <span class="spec-data">CONFETTI & PYRO</span>
+            </div>
+            <h3 class="reel-heading">Stadium Drop & Synchronized Confetti Cannons</h3>
+            <p class="reel-desc">Time-coded multi-barrel confetti cannons and cryo CO2 jets synchronized with high-energy sub-bass drops for maximum festival euphoria.</p>
+          </div>
+        </div>
+
+        <!-- Reel 3: Skyvox Arena Concert Tour -->
+        <div class="reel-cinema-card">
+          <div class="reel-video-wrap">
+            <video loop muted playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()" poster="images/thundersparkevents_1793894378_4023798823179282793_69442588126.webp">
+              <source src="images/skyvox.music_1780578333_3912095127590020826_4605375239.mp4" type="video/mp4">
+            </video>
+            <div class="reel-scrim"></div>
+            <div class="reel-telemetry-badge">CONCERT ACOUSTICS</div>
+            <button type="button" class="reel-play-btn" onclick="toggleReelAudio(this)" title="Toggle Sound">
+              <span class="play-icon">▶</span>
+              <span class="play-txt">PLAY WITH SOUND</span>
+            </button>
+          </div>
+          <div class="reel-cinema-info">
+            <div class="reel-spec-bar">
+              <span class="spec-code">SKYVOX LIVE</span>
+              <span class="spec-data">DSP TIME-ALIGNED</span>
+            </div>
+            <h3 class="reel-heading">Tour-Grade Line Arrays & Directional Sub Arrays</h3>
+            <p class="reel-desc">Multi-zone delay calibration and cardioid sub-bass steering engineered to eliminate slap-back echo and focus 100% of the energy on the crowd.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. DJ ARUN: HEADLINER SPOTLIGHT -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-arun section-dark-overlay" id="arun">
+    <div class="section-inner">
+      
+      <div class="arun-spotlight-grid">
+        
+        <!-- Left: DJ Arun Authentic Live Concert Portrait -->
+        <div class="arun-photo-col reveal-on-scroll">
+          <div class="arun-portrait-wrapper">
+            <img src="images/djarunproductions_1776693317_3879502982543455121_1443149917.jpg" alt="DJ Arun Live Arena Headliner" class="arun-portrait-img">
+            <div class="arun-portrait-overlay"></div>
+            
+            <!-- Live EQ Audio Badge -->
+            <div class="arun-live-badge">
+              <div class="arun-eq-bars">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+                <span class="bar bar-4"></span>
+              </div>
+              <span class="arun-badge-text">LIVE HEADLINER</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Headliner Identity & Signature Typography -->
+        <div class="arun-bio-col reveal-on-scroll">
+          <span class="section-kicker">HEADLINE ARTIST</span>
+          
+          <h2 class="arun-headline-name">
+            MEET DJ ARUN.
+          </h2>
+
+          <div class="arun-role-subline">
+            <span id="arunRoleTyped">SOUND ENGINEER. EVENT PRODUCER. ARENA HEADLINER.</span>
+          </div>
+
+          <p class="arun-lead-text">
+            For over a decade, DJ Arun has commanded main stages across India with an unmistakable blend of surgical track programming, infectious arena energy, and flawless technical precision.
+          </p>
+
+          <p class="arun-body-text">
+            Whether headlining a 15,000+ university youth festival or orchestrating the signature soundtrack of an intimate royal palace wedding, Arun's sets are tailored for maximum crowd euphoria. As the technical architect behind Team DAP, he ensures that the sound system, lighting rig, and artist performance operate in complete cinematic synchrony.
+          </p>
+
+          <!-- 3 Key Impact Numbers -->
+          <div class="arun-stats-strip">
+            <div class="stat-unit">
+              <strong class="stat-big">500+</strong>
+              <span class="stat-label">SHOWS HEADLINED</span>
+            </div>
+            <div class="stat-unit">
+              <strong class="stat-big">100K+</strong>
+              <span class="stat-label">MAX AUDIENCE POWERED</span>
+            </div>
+            <div class="stat-unit">
+              <strong class="stat-big">12+</strong>
+              <span class="stat-label">YEARS TOUR MASTERY</span>
+            </div>
+          </div>
+
+          <!-- Direct Booking Action -->
+          <div class="arun-cta-row">
+            <a href="#contact" class="btn-arun-book">
+              <span>COMMISSION DJ ARUN FOR YOUR EVENT</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. INTERSTATE LOGISTICS: 45-TON MOBILIZATION FLEET -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-fleet section-dark-overlay" id="fleet">
+    <div class="section-inner">
+      
+      <div class="fleet-editorial-block reveal-on-scroll">
+        <div class="fleet-kicker-row">
+          <span class="fleet-badge-pill">
+            <span class="pulse-dot-amber"></span>
+            INTERSTATE LOGISTICS FLEET
+          </span>
+          <span class="fleet-telemetry">BENGALURU • HYDERABAD • CHENNAI • GOA</span>
+        </div>
+        <div class="fleet-headline-split">
+          <h2 class="section-title">
+            ON-TIME. EVERY ARENA.<br>
+            <span class="title-highlight">EVERY STAGE. EVERY CITY.</span>
+          </h2>
+          <p class="fleet-lead-text">
+            World-class concerts are won on logistics. Team DAP operates a dedicated interstate fleet of heavy carriers, deploying 45 tons of certified aluminium trussing, tour line arrays, and road cases from central depots to your stadium stage on a guaranteed 12-hour turnaround.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fleet Clean Telemetry Metrics Strip -->
+      <div class="fleet-metrics-strip reveal-on-scroll">
+        <div class="fleet-metric-box">
+          <span class="f-num">45 TONS</span>
+          <span class="f-lbl">CARRIER PAYLOAD CAPACITY</span>
+        </div>
+        <div class="fleet-metric-box">
+          <span class="f-num">12 HOURS</span>
+          <span class="f-lbl">RAPID INTERSTATE DISPATCH</span>
+        </div>
+        <div class="fleet-metric-box">
+          <span class="f-num">100%</span>
+          <span class="f-lbl">ON-TIME SHOW RECORD</span>
+        </div>
+        <div class="fleet-metric-box">
+          <span class="f-num">500,000+ KM</span>
+          <span class="f-lbl">INTERSTATE TOUR TRANSIT</span>
+        </div>
+      </div>
+
+    </div>
+  <!-- ========================================================================= -->
+  <!-- 8. COMMISSIONS DESK & FAST QUOTE BUILDER -->
+  <!-- ========================================================================= -->
+  <section class="page-section section-contact section-dark-overlay" id="contact">
+    <div class="section-inner">
+      
+      <div class="contact-split-grid">
+        
+        <!-- Left: Live Visual Stage Production Command Deck -->
+        <div class="contact-visual-col reveal-on-scroll">
+          
+          <div class="contact-stage-card">
+            <div class="contact-video-wrap">
+              <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                preload="metadata" 
+                class="contact-live-video" 
+                poster="images/tarana_theband_1778171118_3891898379870073979_58347999296.jpg"
+              >
+                <source src="images/tarana_theband_1780499041_3911415151148495653_58347999296.mp4" type="video/mp4">
+              </video>
+              <div class="contact-video-scrim"></div>
+              
+              <div class="contact-video-overlay-content">
+                <span class="section-kicker">GET IN TOUCH</span>
+                <h2 class="contact-stage-title">PLANNING AN ARENA SPECTACLE?</h2>
+                <p class="contact-stage-sub">Direct stage engineering, 3D CAD rig drawings, and instant quotation for India's grandest concert productions.</p>
+              </div>
+            </div>
+
+            <!-- Integrated Direct Contact Channels Deck -->
+            <div class="contact-channels-deck">
+              <div class="deck-hotline-row">
+                <div class="deck-phone-group">
+                  <span class="deck-lbl">DIRECT TECHNICAL DESK (24/7)</span>
+                  <a href="tel:+919980555333" class="deck-phone-num">+91 99805 55333</a>
+                </div>
+                <div class="deck-cta-group">
+                  <a href="https://wa.me/919980555333" target="_blank" class="btn-deck-wa">
+                    <span>WHATSAPP DESK ↗</span>
+                  </a>
+                  <a href="tel:+919980555333" class="btn-deck-call">
+                    <span>CALL DIRECT</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Fast Specs Quick Ribbon -->
+              <div class="deck-specs-ribbon">
+                <div class="deck-spec-box">
+                  <span class="ds-lbl">OFFICIAL EMAIL</span>
+                  <strong class="ds-val">info@teamdap.in</strong>
+                </div>
+                <div class="deck-spec-box">
+                  <span class="ds-lbl">OPERATIONAL NETWORK</span>
+                  <strong class="ds-val">BLR • HYD • MAA • GOA</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Modern Clean Rig Spec Builder Studio -->
+        <div class="contact-form-col reveal-on-scroll">
+          <div class="builder-studio-card">
+            
+            <div class="builder-studio-header">
+              <h3 class="builder-title">FAST RIGGING QUOTE BUILDER</h3>
+              <p class="builder-sub">Select your required production packages and expected crowd scale for immediate dispatch.</p>
+            </div>
+
+            <!-- Dynamic Live Estimator HUD -->
+            <div class="rig-live-hud">
+              <span class="hud-tag">SELECTED RIDER SPECIFICATION</span>
+              <div class="hud-readout" id="hudSummaryText">Full Turnkey Arena Package • 2,000 – 5,000 Attendees</div>
+            </div>
+
+            <form onsubmit="handleSendWhatsApp(event)">
+              
+              <!-- 01 Hardware Chips -->
+              <div class="form-block">
+                <label class="form-block-lbl">SELECT REQUIRED PACKAGES</label>
+                <div class="chips-grid" id="hardwareChipsGrid">
+                  <button type="button" class="spec-chip active" data-val="Full Turnkey Arena Package" onclick="toggleSpecChip(this)">
+                    Full Turnkey Arena Package
+                  </button>
+                  <button type="button" class="spec-chip" data-val="Aluminium Box Truss & Roof" onclick="toggleSpecChip(this)">
+                    Aluminium Box Truss & Roof
+                  </button>
+                  <button type="button" class="spec-chip" data-val="Tour Concert Line Arrays" onclick="toggleSpecChip(this)">
+                    Tour Concert Line Arrays
+                  </button>
+                  <button type="button" class="spec-chip" data-val="Intelligent DMX Moving Lights" onclick="toggleSpecChip(this)">
+                    Intelligent DMX Moving Lights
+                  </button>
+                  <button type="button" class="spec-chip" data-val="Ring-Lock Scaffolding & Risers" onclick="toggleSpecChip(this)">
+                    Ring-Lock Scaffolding & Risers
+                  </button>
+                  <button type="button" class="spec-chip" data-val="DJ Arun Headline Show" onclick="toggleSpecChip(this)">
+                    DJ Arun Headline Show
+                  </button>
+                </div>
+                <input type="hidden" id="selectedHardware" value="Full Turnkey Arena Package">
+              </div>
+
+              <!-- 02 Client Parameters -->
+              <div class="form-block">
+                <label class="form-block-lbl">EVENT & VENUE DETAILS</label>
+                <div class="inputs-grid">
+                  <div class="input-unit">
+                    <label for="qName">Your Name / Organization *</label>
+                    <input type="text" id="qName" required placeholder="e.g. Vikram / Fest Committee">
+                  </div>
+                  <div class="input-unit">
+                    <label for="qPhone">WhatsApp Phone *</label>
+                    <input type="tel" id="qPhone" required placeholder="+91 98765 43210">
+                  </div>
+                  <div class="input-unit">
+                    <label for="qDate">Event Date *</label>
+                    <input type="date" id="qDate" required>
+                  </div>
+                  <div class="input-unit">
+                    <label for="qLocation">City & Venue</label>
+                    <input type="text" id="qLocation" placeholder="e.g. Palace Grounds, Bengaluru">
+                  </div>
+                </div>
+              </div>
+
+              <!-- 03 Audience Scale -->
+              <div class="form-block">
+                <label class="form-block-lbl">EXPECTED AUDIENCE SCALE</label>
+                <div class="scale-chips-row">
+                  <button type="button" class="scale-chip" data-val="< 2,000 Attendees" onclick="selectScaleChip(this)">
+                    &lt; 2,000
+                  </button>
+                  <button type="button" class="scale-chip active" data-val="2,000 – 5,000 Attendees" onclick="selectScaleChip(this)">
+                    2,000 – 5,000
+                  </button>
+                  <button type="button" class="scale-chip" data-val="5,000 – 15,000 Attendees" onclick="selectScaleChip(this)">
+                    5,000 – 15,000
+                  </button>
+                  <button type="button" class="scale-chip" data-val="15,000+ Stadium" onclick="selectScaleChip(this)">
+                    15,000+ Stadium
+                  </button>
+                </div>
+                <input type="hidden" id="selectedScale" value="2,000 – 5,000 Attendees">
+              </div>
+
+              <!-- 04 Notes -->
+              <div class="form-block">
+                <label class="form-block-lbl" for="qDetails">ADDITIONAL SPECIFICATIONS & NOTES</label>
+                <textarea id="qDetails" rows="2" placeholder="e.g. 60x40ft roof, multi-day festival, indoor auditorium..."></textarea>
+              </div>
+
+              <!-- Submit to WhatsApp -->
+              <button type="submit" class="btn-builder-submit">
+                <span>DISPATCH SPECIFICATIONS TO WHATSAPP DESK →</span>
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- LIGHTBOX MODAL FOR PRODUCTION INSPECTION -->
+  <!-- ========================================================================= -->
+  <div class="lightbox-modal" id="photoLightboxModal">
+    <div class="lightbox-overlay-shade" onclick="closeLightbox()"></div>
+    <div class="lightbox-modal-content">
+      <button class="lightbox-modal-close" onclick="closeLightbox()" aria-label="Close Modal">&times;</button>
+      <div class="lightbox-modal-img-wrap">
+        <img id="modalFullImg" src="" alt="Setup Detail">
+      </div>
+      <div class="lightbox-modal-caption">
+        <span id="modalFullTag" class="modal-tag">STAGE</span>
+        <h4 id="modalFullTitle">Title</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="main-footer">
+    <div class="section-inner">
+      <div class="footer-top-row">
+        
+        <div class="footer-brand-col">
+          <div class="brand-badge footer-brand">
+            <img src="images/logo.jpg" alt="Team DAP" class="brand-logo">
+            <div class="brand-text">
+              <span class="brand-title">TEAM DAP</span>
+              <span class="brand-sub">DJ ARUN PRODUCTIONS</span>
+            </div>
+          </div>
+          <p class="footer-bio">
+            Turnkey festival engineering, heavy aluminium box trussing, intelligent DMX lighting, and tour-grade line arrays for India's grandest crowds.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="f-col-title">NAVIGATION</span>
+          <ul class="footer-links">
+            <li><a href="#about">About Team DAP</a></li>
+            <li><a href="#services">Turnkey Services</a></li>
+            <li><a href="#works">Production Archive</a></li>
+            <li><a href="#reels">Live Reels Vault</a></li>
+            <li><a href="#arun">DJ Arun Spotlight</a></li>
+            <li><a href="#fleet">Interstate Fleet</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="f-col-title">PRODUCTION STANDARDS</span>
+          <ul class="footer-links">
+            <li><a href="#about">Engineered Stage Truss</a></li>
+            <li><a href="#about">Certified Rigging Safety</a></li>
+            <li><a href="#about">TUV Certified Rigging Nodes</a></li>
+            <li><a href="#about">Pioneer DJ Pro Rider Gear</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="f-col-title">CONNECT</span>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com/djarunproductions" target="_blank">Instagram @djarunproductions ↗</a></li>
+            <li><a href="https://wa.me/919980555333" target="_blank">WhatsApp Desk (+91 99805 55333) ↗</a></li>
+            <li><a href="mailto:info@teamdap.in">info@teamdap.in ↗</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>© 2026 Team DAP by DJ Arun Productions. All rights reserved.</span>
+        <span class="footer-tagline">Engineered for the Main Stage.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Clean, Robust Engine Script -->
+  <script src="script.js?v=35.0"></script>
+</body>
+</html>
