@@ -498,23 +498,36 @@ _Dispatched via official teamdap.in quote desk_`;
   };
 
   /* =========================================================================
-     10. MOBILE NAV TOGGLE
+     10. MOBILE NAV TOGGLE & ACCESSIBILITY
      ========================================================================= */
   function initMobileNav() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
     if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('is-open');
-        navToggle.classList.toggle('is-active');
+      const toggleMenu = (open) => {
+        const shouldOpen = open !== undefined ? open : !navMenu.classList.contains('is-open');
+        navMenu.classList.toggle('is-open', shouldOpen);
+        navToggle.classList.toggle('is-active', shouldOpen);
+        navToggle.setAttribute('aria-expanded', shouldOpen);
+        document.body.classList.toggle('nav-drawer-open', shouldOpen);
+      };
+
+      navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
       });
 
       navMenu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-          navMenu.classList.remove('is-open');
-          navToggle.classList.remove('is-active');
+          toggleMenu(false);
         });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+          toggleMenu(false);
+        }
       });
     }
   }
