@@ -7,86 +7,12 @@
   'use strict';
 
   /* =========================================================================
-     1. HERO VIDEO REELS & DJ PERFORMANCE CONSOLE
+     1. HERO VIDEO PLAYBACK & SPOTLIGHT GLOW
      ========================================================================= */
-  const heroReels = [
-    {
-      src: 'images/djarunproductions_1792674572_4013565974667328085_1443149917.mp4',
-      title: 'GALA ENTRY'
-    },
-    {
-      src: 'images/djarunproductions_1791419327_4003034579574222838_1443149917.mp4',
-      title: 'ARENA TOUR'
-    },
-    {
-      src: 'images/djarunproductions_1780054668_3907702547184003679_1443149917.mp4',
-      title: 'CONFETTI DROP'
-    },
-    {
-      src: 'images/tarana_theband_1780499041_3911415151148495653_58347999296.mp4',
-      title: 'DJ ARUN LIVE'
-    }
-  ];
-
-  window.switchHeroVideo = function (idx, btn) {
-    const video = document.getElementById('heroVideo');
-    const source = document.getElementById('heroVideoSource');
-    if (!video || !source || !heroReels[idx]) return;
-
-    // Update active cue pad
-    document.querySelectorAll('.dj-cue-pad').forEach((b) => {
-      b.classList.remove('active');
-      b.setAttribute('aria-selected', 'false');
-    });
-    if (btn) {
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-    }
-
-    // Telemetry display update
-    const chEl = document.getElementById('djChannelIndicator');
-    if (chEl) {
-      chEl.textContent = `CH 0${idx + 1} // 48kHz`;
-    }
-
-    // Video switch with fade
-    video.style.opacity = '0.2';
-    setTimeout(() => {
-      source.src = heroReels[idx].src;
-      video.load();
-      video.play().catch(() => {});
-      video.style.opacity = '0.7';
-    }, 200);
-  };
-
-  window.toggleHeroAudio = function () {
-    const video = document.getElementById('heroVideo');
-    const btn = document.getElementById('heroSoundBtn');
-    const badge = document.getElementById('heroSoundBadge');
-    const txt = document.getElementById('heroSoundTxt');
-    const vu = document.getElementById('djVuBlock');
-    if (!video || !btn) return;
-
-    if (video.muted) {
-      video.muted = false;
-      btn.classList.add('active');
-      if (badge) badge.textContent = 'ON AIR';
-      if (txt) txt.textContent = 'LIVE AUDIO';
-      if (vu) vu.classList.add('is-live');
-    } else {
-      video.muted = true;
-      btn.classList.remove('active');
-      if (badge) badge.textContent = 'MUTED';
-      if (txt) txt.textContent = 'MASTER CUE';
-      if (vu) vu.classList.remove('is-live');
-    }
-  };
-
-  // Autoplay hero video on load
+  // Autoplay single hero background video seamlessly
   const heroVid = document.getElementById('heroVideo');
   if (heroVid) {
     heroVid.play().catch(() => {
-      // Browsers allow muted autoplay
       heroVid.muted = true;
       heroVid.play().catch(() => {});
     });
@@ -133,35 +59,35 @@
       category: 'Concerts',
       title: 'Live Music Productions',
       tags: 'Audio · Lighting · LED · Stage',
-      img: 'images/concert.jpg'
+      img: 'images/djarunproductions_1782137934_3925175345106743732_1443149917.jpg'
     },
     {
       num: '02',
       category: 'Corporate Events',
       title: 'Brand Experiences',
       tags: 'Production · AV · Fabrication',
-      img: 'images/stage.jpg'
+      img: 'images/djarunproductions_1776693317_3879503003523396957_1443149917.jpg'
     },
     {
       num: '03',
       category: 'College Festivals',
       title: 'Festival Scale',
       tags: 'Stage · Sound · Special Effects',
-      img: 'images/festival.jpg'
+      img: 'images/tarana_theband_1778171118_3891898386656444975_58347999296.jpg'
     },
     {
       num: '04',
       category: 'Weddings',
       title: 'Immersive Celebrations',
       tags: 'Lighting · Structures · Production',
-      img: 'images/wedding.jpg'
+      img: 'images/thundersparkevents_1793894378_4023798828732710975_69442588126.webp'
     },
     {
       num: '05',
       category: 'Special Events',
       title: 'One-of-One Experiences',
       tags: 'Concept · Design · Execution',
-      img: 'images/lighting.jpg'
+      img: 'images/dj-footer-bg.jpg'
     }
   ];
 
@@ -198,11 +124,11 @@
      4. SECTION 07: TECHNICAL ARSENAL
      ========================================================================= */
   const arsenalImages = [
-    'images/concert.jpg',
-    'images/lighting.jpg',
-    'images/stage.jpg',
+    'images/djarunproductions_1782137934_3925175345106743732_1443149917.jpg',
+    'images/djarunproductions_1776693317_3879502990034485871_1443149917.jpg',
+    'images/djarunproductions_1776693317_3879503003523396957_1443149917.jpg',
     'images/about-stage-rigging.jpg',
-    'images/festival.jpg'
+    'images/djarunproductions_1776693317_3879502997265472505_1443149917.jpg'
   ];
 
   window.setArsenalTab = function (idx, btn) {

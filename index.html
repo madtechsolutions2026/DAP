@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=38.0">
+  <link rel="stylesheet" href="style.css?v=39.0">
 </head>
 <body>
 
@@ -70,12 +70,9 @@
     <!-- 1. HERO SECTION -->
     <!-- ========================================================================= -->
     <section id="top" class="hero">
-      <!-- High-res stage backdrop -->
-      <img class="hero-image" alt="Monumental concert stage with architectural LED screens and lighting" src="images/hero-stage.png">
-      
-      <!-- Video Element for live reels playback -->
-      <video id="heroVideo" class="hero-video" loop muted playsinline preload="auto">
-        <source id="heroVideoSource" src="images/djarunproductions_1792674572_4013565974667328085_1443149917.mp4" type="video/mp4">
+      <!-- Single seamless live concert video in home banner -->
+      <video id="heroVideo" class="hero-video" autoplay loop muted playsinline poster="images/about-stage-rigging.jpg">
+        <source src="images/djarunproductions_1792674572_4013565974667328085_1443149917.mp4" type="video/mp4">
       </video>
 
       <div class="hero-shade"></div>
@@ -100,78 +97,6 @@
               Start a project 
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
             </a>
-          </div>
-        </div>
-
-        <!-- Integrated DJ Performance Console Deck (Live Video & Audio Cue Monitor) -->
-        <div class="hero-dj-dock">
-          <div class="dj-deck-console" id="djDeckConsole" role="region" aria-label="Live DJ Video & Audio Performance Console">
-            <div class="dj-deck-header">
-              <div class="dj-deck-header-left">
-                <span class="dj-hardware-bolt" aria-hidden="true">+</span>
-                <span class="dj-console-model">DJM-STAGE // DECK A</span>
-                <span class="dj-sync-badge">SYNC ON</span>
-              </div>
-              <div class="dj-deck-header-right">
-                <span class="dj-bpm-meter"><span class="dj-bpm-beat"></span>128.0 BPM</span>
-                <span class="dj-channel-id" id="djChannelIndicator">CH 01 // 48kHz</span>
-                <span class="dj-hardware-bolt" aria-hidden="true">+</span>
-              </div>
-            </div>
-
-            <div class="dj-deck-surface">
-              <!-- Tactile Hot Cue Performance Pads -->
-              <div class="dj-cue-bank" role="tablist" aria-label="Video Reel Hot Cues">
-                <button type="button" class="dj-cue-pad active" data-ch="01" onclick="switchHeroVideo(0, this)" role="tab" aria-selected="true" title="Trigger Cue 1: Gala Entry">
-                  <span class="dj-cue-led"></span>
-                  <span class="dj-cue-meta">HOT CUE 1</span>
-                  <span class="dj-cue-label">GALA ENTRY</span>
-                </button>
-                <button type="button" class="dj-cue-pad" data-ch="02" onclick="switchHeroVideo(1, this)" role="tab" aria-selected="false" title="Trigger Cue 2: Arena Tour">
-                  <span class="dj-cue-led"></span>
-                  <span class="dj-cue-meta">HOT CUE 2</span>
-                  <span class="dj-cue-label">ARENA TOUR</span>
-                </button>
-                <button type="button" class="dj-cue-pad" data-ch="03" onclick="switchHeroVideo(2, this)" role="tab" aria-selected="false" title="Trigger Cue 3: Confetti Drop">
-                  <span class="dj-cue-led"></span>
-                  <span class="dj-cue-meta">HOT CUE 3</span>
-                  <span class="dj-cue-label">CONFETTI DROP</span>
-                </button>
-                <button type="button" class="dj-cue-pad" data-ch="04" onclick="switchHeroVideo(3, this)" role="tab" aria-selected="false" title="Trigger Cue 4: DJ Arun Live">
-                  <span class="dj-cue-led"></span>
-                  <span class="dj-cue-meta">HOT CUE 4</span>
-                  <span class="dj-cue-label">DJ ARUN LIVE</span>
-                </button>
-              </div>
-
-              <!-- Live VU Meter -->
-              <div class="dj-vu-block" id="djVuBlock" title="Master Audio Level VU Monitor">
-                <div class="dj-vu-meter" aria-hidden="true">
-                  <span class="dj-vu-bar bar-1"></span>
-                  <span class="dj-vu-bar bar-2"></span>
-                  <span class="dj-vu-bar bar-3"></span>
-                  <span class="dj-vu-bar bar-4"></span>
-                  <span class="dj-vu-bar bar-5"></span>
-                  <span class="dj-vu-bar bar-6"></span>
-                </div>
-                <span class="dj-vu-scale">VU MONITOR</span>
-              </div>
-
-              <!-- Master Cue Button -->
-              <button type="button" class="dj-master-cue" id="heroSoundBtn" onclick="toggleHeroAudio()" title="Toggle Master Live Audio Feed">
-                <div class="dj-cue-headphone-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                  </svg>
-                </div>
-                <div class="dj-master-info">
-                  <span class="dj-cue-state-badge" id="heroSoundBadge">MUTED</span>
-                  <span class="dj-cue-state-title" id="heroSoundTxt">MASTER CUE</span>
-                </div>
-                <span class="dj-master-led" id="heroSoundLed"></span>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -258,7 +183,7 @@
 
       <div class="service-grid">
         <article class="service-item service-wide" data-reveal="true">
-          <img alt="Professional Audio Systems" loading="lazy" src="images/concert.jpg">
+          <img alt="Professional Audio Systems" loading="lazy" src="images/djarunproductions_1782137934_3925175345106743732_1443149917.jpg">
           <div class="service-overlay"></div>
           <span>01</span>
           <h3>Professional Audio Systems</h3>
@@ -266,7 +191,7 @@
         </article>
 
         <article class="service-item service-tall" data-reveal="true">
-          <img alt="Intelligent Stage Lighting" loading="lazy" src="images/lighting.jpg">
+          <img alt="Intelligent Stage Lighting" loading="lazy" src="images/djarunproductions_1776693317_3879502990034485871_1443149917.jpg">
           <div class="service-overlay"></div>
           <span>02</span>
           <h3>Intelligent Stage Lighting</h3>
@@ -274,7 +199,7 @@
         </article>
 
         <article class="service-item" data-reveal="true">
-          <img alt="LED Walls & Visual Displays" loading="lazy" src="images/stage.jpg">
+          <img alt="LED Walls & Visual Displays" loading="lazy" src="images/djarunproductions_1776693317_3879503003523396957_1443149917.jpg">
           <div class="service-overlay"></div>
           <span>03</span>
           <h3>LED Walls & Visual Displays</h3>
@@ -290,7 +215,7 @@
         </article>
 
         <article class="service-item service-tall" data-reveal="true">
-          <img alt="Custom Fabrication" loading="lazy" src="images/festival.jpg">
+          <img alt="Custom Fabrication" loading="lazy" src="images/djarunproductions_1776693317_3879502992827908298_1443149917.jpg">
           <div class="service-overlay"></div>
           <span>05</span>
           <h3>Custom Fabrication</h3>
@@ -298,7 +223,7 @@
         </article>
 
         <article class="service-item service-wide" data-reveal="true">
-          <img alt="Special Effects & Event Production" loading="lazy" src="images/crowd.jpg">
+          <img alt="Special Effects & Event Production" loading="lazy" src="images/djarunproductions_1776693317_3879502997265472505_1443149917.jpg">
           <div class="service-overlay"></div>
           <span>06</span>
           <h3>Special Effects & Event Production</h3>
@@ -317,7 +242,7 @@
       </div>
 
       <div class="project-stage" id="projectStage">
-        <img id="stageImg" class="active" alt="Live Music Productions" loading="lazy" src="images/concert.jpg">
+        <img id="stageImg" class="active" alt="Live Music Productions" loading="lazy" src="images/djarunproductions_1782137934_3925175345106743732_1443149917.jpg">
         <div class="project-vignette"></div>
         <div class="project-number" id="stageNumber">01<span>/ 05</span></div>
         <div class="project-info">
@@ -351,10 +276,10 @@
       </div>
       <div class="behind-collage" data-reveal="true">
         <div class="image-main">
-          <img alt="Production teams working behind the scenes on stage trussing" loading="lazy" src="images/backstage-grid.png">
+          <img alt="Production teams working behind the scenes on stage trussing" loading="lazy" src="images/about-stage-rigging.jpg">
         </div>
         <div class="image-detail">
-          <img alt="Stage lighting test before an arena concert" loading="lazy" src="images/about-stage-rigging.jpg">
+          <img alt="Stage lighting test before an arena concert" loading="lazy" src="images/djarunproductions_1776693317_3879502990034485871_1443149917.jpg">
         </div>
         <span class="caption cap-one">01 / Precision in every cue</span>
         <span class="caption cap-two">02 / Built before showtime</span>
@@ -373,7 +298,7 @@
 
       <div class="arsenal-body" data-reveal="true">
         <div class="equipment-image">
-          <img id="arsenalImg" class="active" alt="Sound Arsenal" loading="lazy" src="images/concert.jpg">
+          <img id="arsenalImg" class="active" alt="Sound Arsenal" loading="lazy" src="images/djarunproductions_1782137934_3925175345106743732_1443149917.jpg">
           <span id="arsenalIndexTag">TECH / 001—005</span>
         </div>
 
@@ -594,6 +519,6 @@
   </main>
 
   <!-- Core Interactive Engine -->
-  <script src="script.js?v=38.0"></script>
+  <script src="script.js?v=39.0"></script>
 </body>
 </html>
